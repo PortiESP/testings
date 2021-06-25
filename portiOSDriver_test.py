@@ -22,7 +22,7 @@ class portiOSDriver:
 		gp.add_event_detect(self.pin_CodBtn, gp.RISING, callback=self.rotEncoderButtonCallback, bouncetime=300)
 
 
-	def encoderCallback(self):
+	def encoderCallback(self, _):
 		data = f"{gp.input(self.Q2)}{gp.input(self.Q1)}{gp.input(self.Q0)}"
 		data = int(bin(data))
 		print("Data: ", str(data))
@@ -35,7 +35,7 @@ class portiOSDriver:
 		elif data == 7:
 			print("Joystick button")
 
-	def rotEncoderButtonCallback(self):
+	def rotEncoderButtonCallback(self, _):
 		print("Rotation encoder button")
 
 
