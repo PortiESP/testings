@@ -34,7 +34,7 @@ class portiOSDriver:
 		elif data == 7:
 			print("Joystick button")
 
-	def rotEncoderButtonCallback:
+	def rotEncoderButtonCallback(self):
 		print("Rotation encoder button")
 
 
