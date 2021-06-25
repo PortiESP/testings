@@ -23,7 +23,7 @@ class portiOSDriver:
 
 
 	def encoderCallback(self, _):
-		data = f"{gp.input(self.Q2)}{gp.input(self.Q1)}{gp.input(self.Q0)}"
+		data = f"{gp.input(self.pin_Q2)}{gp.input(self.pin_Q1)}{gp.input(self.pin_Q0)}"
 		data = int(bin(data))
 		print("Data: ", str(data))
 		if data <= 4:
