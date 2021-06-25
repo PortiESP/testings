@@ -9,8 +9,7 @@ class portiOSDriver:
 		self.pin_EI = pins[3]
 		self.pin_CodData = pins[4]
 		self.pin_CodBtn = pins[5]
-		self.pin_SDA = pins[6]
-		self.pin_SCL = pins[7]
+		
 
 		gp.setmode(gp.BOARD)
 		map(lambda x: gp.setmode(x, gp.IN, pull_up_down=PUD_DOWN), pins)
