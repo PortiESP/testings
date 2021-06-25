@@ -13,7 +13,7 @@ class portiOSDriver:
 		
 
 		gp.setmode(gp.BOARD)
-		map(lambda x: gp.setmode(x, gp.IN, pull_up_down=PUD_DOWN), self.pins)
+		map(lambda x: gp.setup(x, gp.IN, pull_up_down=PUD_DOWN), self.pins)
 
 		self.a2d = Adafruit_ADS1x15.ADS1115()
 
