@@ -27,12 +27,14 @@ class portiOSDriver:
 		print("Data: ", str(data))
 		if data <= 4:
 			print("Button ", str(data))
-		elif: data == 5:
+		elif data == 5:
 			print("IRR data")
-		elif: data == 6:
+		elif data == 6:
 			print("Encoder rotation:", str(gp.input(pin_CodData)))
-		elif: data == 7:
+		elif data == 7:
 			print("Joystick button")
 
 	def rotEncoderButtonCallback:
 		print("Rotation encoder button")
+
+
