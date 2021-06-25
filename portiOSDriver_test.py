@@ -16,7 +16,7 @@ class portiOSDriver:
 
 		self.a2d = Adafruit_ADS1x15.ADS1115()
 
-	def startListener(self):
+	def startListeners(self):
 		gp.add_event_detect(pin_EI, gp.RISING, callback=self.encoderCallback, bouncetime=300)
 		gp.add_event_detect(pin_CodBtn, gp.RISING, callback=self.rotEncoderButtonCallback, bouncetime=300)
 
