@@ -7,7 +7,7 @@ class portiOSDriver:
 		self.pin_Q0 = pins[0]
 		self.pin_Q1 = pins[1]
 		self.pin_Q2 = pins[2]
-		self.pin_EI = pins[3]
+		self.pin_E0 = pins[3]
 		self.pin_CodData = pins[4]
 		self.pin_CodBtn = pins[5]
 		
@@ -18,14 +18,13 @@ class portiOSDriver:
 		self.a2d = Adafruit_ADS1x15.ADS1115()
 
 	def startListeners(self):
-		gp.add_event_detect(self.pin_EI, gp.RISING, callback=self.encoderCallback, bouncetime=300)
-		gp.add_event_detect(self.pin_CodBtn, gp.RISING, callback=self.rotEncoderButtonCallback, bouncetime=300)
+		gp.add_event_detect(self.pin_E0, gp.FALLING, callback=self.encoderCallback, bouncetime=300)
+		gp.add_event_detect(self.pin_CodBtn, gp.FALLING, callback=self.rotEncoderButtonCallback, bouncetime=300)
 
 
 	def encoderCallback(self, _):
-		data = f"{gp.input(self.pin_Q2)}{gp.input(self.pin_Q1)}{gp.input(self.pin_Q0)}"
+		data = (gp.input(self.pin_Q2)*4) + (gp.input(self.pin_Q1)*2) + gp.input(self.pin_Q0)
 		print("Data: ", str(data))
-		data = int(bin(data))
 		if data <= 4:
 			print("Button ", str(data))
 		elif data == 5:
@@ -39,3 +38,9 @@ class portiOSDriver:
 		print("Rotation encoder button")
 
 
+driver = portiOSDriver((37,35,33,31,29,23))
+print("Started driver")
+driver.startListeners()
+while 1:
+	time.sleep(0.1)
+		
